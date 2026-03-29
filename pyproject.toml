@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qlib-options"
+version = "0.1.0"
+description = "Options chain data collection and factor derivation, compatible with Microsoft qlib"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [{name = "Andy Barnes"}]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+    "yahooquery>=2.3.0",
+    "exchange-calendars>=4.0.0",
+]
+
+[project.optional-dependencies]
+qlib = ["pyqlib>=0.9.0"]
+test = ["pytest>=7.0", "pytest-cov"]
+dev = ["qlib-options[test]", "ruff", "build", "twine"]
+
+[project.scripts]
+qlib-options = "qlib_options.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Bortlesboat/qlib-options"
+Issues = "https://github.com/Bortlesboat/qlib-options/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+qlib_options = ["data/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
