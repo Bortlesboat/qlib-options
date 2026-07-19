@@ -27,7 +27,7 @@ elif [[ -f "$REPO_DIR/.venv/bin/activate" ]]; then
 fi
 
 # Run the collection pipeline (default 30-symbol universe, 2s delay between tickers)
-if qlib-options run --work-dir "$WORK_DIR" --delay 2.0 -v >> "$LOG_FILE" 2>&1; then
+if qlib-options -v run --work-dir "$WORK_DIR" --delay 2.0 >> "$LOG_FILE" 2>&1; then
     echo "Success: $(date -Iseconds)" | tee -a "$LOG_FILE"
 else
     EXIT_CODE=$?
