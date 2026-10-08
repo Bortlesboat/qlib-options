@@ -1,7 +1,10 @@
 """Normalize derived factors to a trading calendar."""
 
+from __future__ import annotations
+
 import logging
 from pathlib import Path
+from typing import Union
 
 import pandas as pd
 
@@ -28,8 +31,8 @@ def get_us_trading_calendar(start_date=None, end_date=None):
 
 
 def normalize_factors(
-    derived_dir: str | Path,
-    normalized_dir: str | Path,
+    derived_dir: Union[str, Path],
+    normalized_dir: Union[str, Path],
 ):
     """Normalize derived factor CSVs to US trading calendar.
 

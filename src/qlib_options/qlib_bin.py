@@ -10,9 +10,12 @@ Plus:
   instruments/all.txt   — SYMBOL<tab>START<tab>END per line
 """
 
+from __future__ import annotations
+
 import logging
 import struct
 from pathlib import Path
+from typing import Union
 
 import numpy as np
 import pandas as pd
@@ -23,8 +26,8 @@ logger = logging.getLogger(__name__)
 
 
 def export_bin(
-    normalized_dir: str | Path,
-    qlib_dir: str | Path,
+    normalized_dir: Union[str, Path],
+    qlib_dir: Union[str, Path],
     mode: str = "overlay",
 ):
     """Export normalized CSVs to qlib binary format.
