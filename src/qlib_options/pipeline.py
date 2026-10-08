@@ -1,7 +1,10 @@
 """Full pipeline orchestrator — snapshot -> derive -> normalize -> export."""
 
+from __future__ import annotations
+
 import logging
 from pathlib import Path
+from typing import Union
 
 import pandas as pd
 
@@ -13,7 +16,7 @@ from qlib_options.qlib_bin import export_bin
 logger = logging.getLogger(__name__)
 
 
-def derive_factors(raw_dir: str | Path, derived_dir: str | Path):
+def derive_factors(raw_dir: Union[str, Path], derived_dir: Union[str, Path]):
     """Stage 2: Derive underlying-level factors from raw chain snapshots.
 
     Reads raw CSVs from raw_dir, groups by snapshot_date, computes factors,
@@ -61,9 +64,9 @@ def derive_factors(raw_dir: str | Path, derived_dir: str | Path):
 
 def run_pipeline(
     symbols: list[str],
-    work_dir: str | Path,
+    work_dir: Union[str, Path],
     delay: float = 1.0,
-    qlib_dir: str | Path | None = None,
+    qlib_dir: Union[str, Path, None] = None,
     export_mode: str = "overlay",
 ):
     """Run the full pipeline: snapshot -> derive -> normalize [-> export-bin].

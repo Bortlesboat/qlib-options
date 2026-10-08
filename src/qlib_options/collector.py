@@ -4,10 +4,13 @@ This is a snapshot-only collector. yahooquery provides the current options chain
 not historical data. Run daily (e.g., via cron) to build a historical dataset.
 """
 
+from __future__ import annotations
+
 import datetime
 import logging
 import time
 from pathlib import Path
+from typing import Union
 
 import numpy as np
 import pandas as pd
@@ -19,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 def collect_snapshot(
     symbols: list[str],
-    raw_dir: str | Path,
+    raw_dir: Union[str, Path],
     delay: float = 1.0,
 ) -> dict[str, int]:
     """Collect current options chain snapshots for given symbols.

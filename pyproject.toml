@@ -53,3 +53,7 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 100
 target-version = "py39"
+
+[tool.ruff.lint.pyupgrade]
+# Preserve annotations that can be evaluated at runtime on Python 3.9.
+keep-runtime-typing = true
