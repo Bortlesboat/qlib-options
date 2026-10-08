@@ -1,0 +1,32 @@
+# US equities and ETFs with liquid options markets
+# This is the default universe for qlib-options snapshot collection
+SPY
+QQQ
+IWM
+DIA
+AAPL
+MSFT
+AMZN
+GOOGL
+META
+NVDA
+TSLA
+AMD
+NFLX
+JPM
+BAC
+GS
+XLF
+XLE
+XLK
+XLV
+XLI
+GLD
+SLV
+TLT
+HYG
+EEM
+VIX
+COIN
+MSTR
+PLTR
