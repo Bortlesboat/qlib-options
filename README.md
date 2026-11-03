@@ -7,10 +7,10 @@ Options chain data collection and factor derivation, compatible with [Microsoft 
 ## Install
 
 ```bash
-pip install qlib-options
+pip install "git+https://github.com/Bortlesboat/qlib-options.git"
 
 # With qlib integration (optional)
-pip install qlib-options[qlib]
+pip install "qlib-options[qlib] @ git+https://github.com/Bortlesboat/qlib-options.git"
 ```
 
 ## Quick Start
